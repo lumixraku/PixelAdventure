@@ -18,7 +18,11 @@ public class Fan : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-
-        animator.Play("FanRunning");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            animator.Play("FanRunning");
+            Rigidbody2D rb = other.gameObject.GetComponent<Rigidbody2D>();
+            rb.velocity = new Vector2(rb.velocity.x, 10);
+        }
     }
 }

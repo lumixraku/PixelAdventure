@@ -77,12 +77,17 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Spike"))
         {
             KillPlayer();
+        }
+        if (other.gameObject.CompareTag("Spike"))
+        {
+            KillPlayer();
+            // Call Game Over()
+        }
 
-        }        
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-    
+        Debug.LogFormat("{0} OnCollisionEnter2D", other.gameObject.tag);
     }
     
     void KillPlayer()
