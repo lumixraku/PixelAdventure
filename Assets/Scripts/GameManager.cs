@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
+
 
 public class GameManager : MonoBehaviour
 {
-    public TextMesh countTime;
+    public TextMeshProUGUI countTime;
     // public Text countTime2;
 
     public static GameManager instance;
@@ -22,8 +24,20 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
-    private void FixedUpdate() {
+    void Start() {
+        // countTime = GetComponent<TextMeshProUGUI>();
+        Debug.LogFormat("countTime ::: {0}", countTime);
+        // countTime.text = Time.time.ToString("00");
+        Debug.LogFormat("Found??  {0}", GameObject.Find("/Canvas/GameOverPanel").GetType().ToString());
         
+    }   
+
+    private void reloadHandler()
+    {
+        //countTime.text = Time.time.ToString("00");
+    }
+    private void FixedUpdate() {
+        countTime.text = Time.time.ToString("00");
     }
 
 
