@@ -78,10 +78,10 @@ public class Player : MonoBehaviour
         {
             KillPlayer();
         }
-        if (other.gameObject.CompareTag("Spike"))
+        if (other.gameObject.CompareTag("DeadLine"))
         {
             KillPlayer();
-            // Call Game Over()
+            GameManager.instance.GameOver();
         }
 
     }
