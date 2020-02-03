@@ -15,4 +15,12 @@ public class DeadLine : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.LogFormat("You are Dead!!!!");
+            Time.timeScale = 0;
+        }
+    }
 }

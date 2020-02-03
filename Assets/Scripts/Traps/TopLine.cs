@@ -18,12 +18,10 @@ public class TopLine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.LogFormat("collider enter {0}", other.gameObject.tag);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.LogFormat("collider {0}", other.gameObject.tag);
         if (other.gameObject.CompareTag("Platform") ||
             other.gameObject.CompareTag("Spike")
             )
