@@ -9,6 +9,7 @@ TagManager:
   - Fan
   - TopLine
   - DeadLine
+  - wall
   layers:
   - Default
   - TransparentFX

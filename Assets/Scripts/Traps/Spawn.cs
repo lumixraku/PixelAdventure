@@ -8,9 +8,12 @@ public class Spawn : MonoBehaviour
 
     public float Duration; //间隔生成物体的时间
     private float countTime ;
+    private List<int> ranList;  
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        Debug.LogFormat("Objs Count {0}", objs.Count);
+        ranList  = Utils.MakeRandomList(0, objs.Count);
         SpawnPlatforms();
     }
 
@@ -46,11 +49,28 @@ public class Spawn : MonoBehaviour
         return new Vector3(ranX, gameObject.transform.parent.Find("DeadLine").position.y, gameObject.transform.position.z);
     }
 
-    //从当前备选物品列表中随机选一个
+
+    private int lastIdx;
+    //从当前备选物品列表中随机选一个    
     GameObject getRandomPlatform()
-    {
-        int ranX = Random.Range(0, objs.Count);
+    {   
+
+        int ranX = Utils.GetRandomNoRepeat(ranList, lastIdx);
+        foreach (int prime in ranList)
+        {
+            // Part B: access each element with name.
+            Debug.LogFormat("PRIME ELEMENT---- {0}", prime);
+        }
+        Debug.LogFormat("ranXX {0}...", ranX);
+        // 快速的实现一下不连续的随机数
+        // int ranX = Random.Range(0, objs.Count);
         // Debug.LogFormat("item ::: {0} ::: {1} ::: {2}", objs[0], objs[1], objs[2]);
+        // while (lastIdx == ranX) {
+        //     ranX = Random.Range(0, objs.Count);
+        // }
+
+
+        lastIdx = ranX;
         return objs[ranX];
     }
 
