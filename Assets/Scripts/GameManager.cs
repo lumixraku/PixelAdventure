@@ -34,13 +34,14 @@ public class GameManager : MonoBehaviour
         //     instance = new GameManager();
         // }
         instance = this; //当其他的类访问gameObject 的时候实际上是用的instance //而变量的初始化都在this里面
-    
+
     }
 
     void Start()
     {
+        BroadcastMessage("GetMessage", "This is a testMessage");
 
-        // GameObject.Find("/Canvas/GameOverPanel").gameObject.SetActive(false);        
+        // GameObject.Find("/Canvas/GameOverPanel").gameObject.SetActive(false);
         gameOverPanel.SetActive(false);
     }
 
